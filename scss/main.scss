@@ -1,0 +1,22 @@
+body{
+  .container{
+    *{
+      border: 2px solid red;
+    }
+    .social-top{
+      .subscribe input, .subscribe button{
+        display: none;
+      }
+      .subscribe label:after{
+        content: "\00ba";
+      }
+      ul{
+        display: inline-block;
+      }
+      ul::before{
+        content: "\e235";
+        font-family: 'Glyphicons Halflings';
+      }
+    }
+  }
+}

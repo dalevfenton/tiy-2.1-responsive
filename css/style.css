@@ -1,0 +1,13 @@
+body .container * {
+  border: 2px solid red; }
+body .container .social-top .subscribe input, body .container .social-top .subscribe button {
+  display: none; }
+body .container .social-top .subscribe label:after {
+  content: "\00ba"; }
+body .container .social-top ul {
+  display: inline-block; }
+body .container .social-top ul::before {
+  content: "\e235";
+  font-family: 'Glyphicons Halflings'; }
+
+/*# sourceMappingURL=style.css.map */
