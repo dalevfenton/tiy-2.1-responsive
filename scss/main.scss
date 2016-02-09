@@ -8,7 +8,7 @@
 // /* Bootstrap Variables */
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 $grid-gutter-width: 10px;
-$container-large-desktop: ( 1014px + $grid-gutter-width );
+$container-large-desktop: ( 1024px + $grid-gutter-width );
 // /* Import Bootstrap */
 @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
@@ -28,9 +28,14 @@ $youtube-color: rgba(177, 55, 45, 1);
 $icon-size: 60px;
 $icon-font-size: 36px;
 $row-height: 222px;
+$arrow-height: 96px;
+$bull-col-size: 4px;
+$title-color: rgba(56, 55, 53, 1);
+$read-more-font: 13px;
+$bracket-offset: 79px;
 
 @mixin picture-border () {
-  padding: 10px;
+  padding: 5px;
   background-color: $opacity-bg-color;
   text-align: center;
 }
@@ -41,10 +46,20 @@ $row-height: 222px;
   color: $light-text-color;
 }
 
+@mixin title-style () {
+	font-size: 25px;
+	color: $title-color;
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+
 img {
 	max-width: 100%;
 };
+
 .social-icons {
+	margin: 0;
+
   li {
     box-shadow: $box-shadow;
     box-sizing: border-box;
@@ -68,8 +83,8 @@ img {
   .youtube::before { content: '\f167'; left: 25%; }
 
   &.large {
+		float: left;
     font-size: 35px;
-    line-height: $icon-size;
     vertical-align: middle;
 
     li {
@@ -89,10 +104,6 @@ img {
 
     .youtube { background-color: $youtube-color; }
 
-    &::before {
-      content: '\e235';
-      font-family: 'Glyphicons Halflings';
-    }
   }
 
   &.small {
@@ -118,8 +129,29 @@ img {
   }
 }
 
+.bull-col {
+	display: inline-block;
+	float: left;
+	line-height: $bull-col-size;
+	// margin-left: 47px;
+	// margin-right: 11px;
+	// margin-top: 11px;
+	margin: 11px 11px 0 50px;
+	width: $bull-col-size;
+
+	li {
+		content: '';
+		display: inline-block;
+		width: $bull-col-size;
+		height: $bull-col-size;
+		background: $light-text-color;
+		border-radius: $bull-col-size / 2;
+		margin: 0;
+		padding: 0;
+	}
+}
 body {
-  background: url('../images/sk8-bg.jpg') center center fixed;
+  background: url('../images/bg.jpg') center center fixed;
   background-color: #000;
   background-size: cover;
   font-family: $font-family;
@@ -127,14 +159,28 @@ body {
 
 .social-top {
   padding-top: 6px;
+	line-height: 44px;
 
+	.subscribe {
+		text-align: left;
+		color: $light-text-color;
+
+		label {
+			margin: 10px 0 7px 36px;
+			font-weight: lighter;
+			font-size: 13px;
+
+			&::after {
+				content: '\2022';
+				font-size: 10px;
+				margin-left: 14px;
+			}
+		}
+
+	}
   .subscribe input,
   .subscribe button {
     display: none;
-  }
-
-  .subscribe label::after {
-    content: '\00ba';
   }
 
   ul {
@@ -145,30 +191,36 @@ body {
 
 .top-nav {
   padding-bottom: 4px;
-  padding-top: 16px;
+  padding-top: 10px;
   text-align: center;
+	line-height: 40px;
+	font-size: 17px;
 
   span {
-    @include button-style;
-    display: block;
-    line-height: 44px;
-
-    &::before {
-      margin-right: 15px;
-    }
-
-    &::after {
-      margin-left: 15px;
-    }
-
-    &::before,
-    &::after {
-      content: '-';
-      display: inline-block;
-    }
 
   }
 
+}
+.top-nav-item {
+	@include button-style;
+	position: relative;
+
+	&::before {
+		left: 20px;
+	}
+
+	&::after {
+		right: 20px;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		border-top: 3px solid $light-text-color;
+		width: 16px;
+		position: absolute;
+		top: 49%;
+	}
 }
 
 .slider {
@@ -186,12 +238,28 @@ body {
   }
 
   input[type='radio'] {
+		display: none;
     border-radius: 20px;
     box-shadow: $box-shadow;
   }
-
+	input[type="radio"] + label span {
+	    display:inline-block;
+	    width:20px;
+	    height:20px;
+	    background: black;
+			position: relative;
+	}
+	input[type="radio"] + label span::before {
+	    display:inline-block;
+	    width:10px;
+	    height:10px;
+			position: absolute;
+			top: 25%;
+			left: 25%;
+	    background: white;
+	}
   .slider-buttons {
-    padding-top: 22px;
+    padding-top: 13px;
   }
 }
 
@@ -200,12 +268,62 @@ body {
 }
 
 .article {
+	padding: 7px 40px 18px 26px;
   background: $opacity-bg-color;
   box-shadow: $box-shadow;
+
+	h1 {
+		@include title-style;
+	}
+
 }
 
+.article-overflow {
+	height: 300px;
+	overflow: hidden;
+}
+
+.article-date {
+	color: rgba(186, 186, 186, 1);
+	font-size: 12px;
+	line-height: 12px;
+	padding: 22px 0 17px 0;
+}
+
+.article-text {
+	color: rgba(81, 81, 81, 1);
+	font-size: 13px;
+	line-height: 24px;
+}
+
+.read-more-btn {
+	color: $button-bg-color;
+	display: block;
+	text-align: center;
+	font-size: $read-more-font;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-left: 14px;
+	margin-top: 9px;
+	position: relative;
+
+	&::before, &::after {
+		font-size: $read-more-font - 1px;
+		position: absolute;
+	}
+
+	&::before {
+		content: '[';
+		left: $bracket-offset;
+	}
+
+	&::after {
+		content: ']';
+		right: $bracket-offset;
+	}
+}
 .boarders {
-  padding-top: 37px;
+  padding-top: 29px;
 }
 
 .boarder {
@@ -213,48 +331,78 @@ body {
   box-shadow: $box-shadow;
   display: block;
   margin-top: 10px;
+
+	span {
+		color: $light-text-color;
+		font-weight: bold;
+		position: absolute;
+		text-transform: uppercase;
+		width: 80%;
+		left: 10%;
+		top: 31%;
+		font-size: $icon-font-size * 1.2;
+		line-height: $icon-font-size * 1.39;
+	}
 }
 
+.boarder-holder {
+	width: 1000px;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -500px;
+}
 .boarder-img {
-  background-size: cover;
+  display: block;
+	margin: 0 auto;
+}
+
+.arrow-anchor {
+	position: relative;
+}
+
+.arrow {
+	@include button-style;
+	position: absolute;
+	height: $arrow-height;
+	line-height: $arrow-height;
+	width: 267px;
+	left: -327px;
+	top: 64px;
+
+	&::after {
+		left: 100%;
+		top: 0;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-left-color: $button-bg-color;
+		border-width: $arrow-height / 2;
+		// box-shadow: $box-shadow;
+	}
+}
+.lance, .rodney, .steve, .tommy {
+	overflow: hidden;
+	position: relative;
 }
 
 .lance {
-  background: url('../images/lance.jpg') center center no-repeat;
   height: $row-height;
-	position: relative;
-
-  &::before {
-    @include button-style;
-    content: 'SKATEBOARDERS';
-		height: 96px;
-    line-height: 50px;
-		position: absolute;
-		top: 50%;
-		left: -50%;
-		width: 267px;
-
-		&::before{
-			@include button-style;
-			position: absolute;
-			top: 1px;
-		}
-  }
 }
 
 .rodney {
-  background: url('../images/rodney.jpg') center center no-repeat;
   height: $row-height;
 }
 
 .steve {
-  background: url('../images/steve.jpg') center center no-repeat;
   height: $row-height;
 }
 
 .tommy {
-  background: url('../images/tommy.jpg') center center no-repeat;
-  height: $row-height * 2;
+  height: ( $row-height * 2 ) + ( $grid-gutter-width * 2 );
 }
 
 .skateboards {
@@ -278,6 +426,10 @@ body {
   box-shadow: $box-shadow;
   height: 360px;
   padding-top: 33px;
+
+	h3 {
+		@include title-style;
+	}
 }
 
 .c-form {
