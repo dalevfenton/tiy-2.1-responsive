@@ -1,6 +1,3 @@
-/*------------------------------------------------------------------------------
-                                RESET CSS
-------------------------------------------------------------------------------*/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -48,39 +45,35 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*------------------------------------------------------------------------------
-                                START SASS
-------------------------------------------------------------------------------*/
 .social-icons li {
-  display: inline-block;
-  position: relative;
-  box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
   font-family: FontAwesome;
-  color: rgba(255, 255, 255, 0.5); }
+  position: relative; }
 .social-icons li::before {
-  position: absolute;
-  left: 50%; }
+  left: 50%;
+  position: absolute; }
 .social-icons .facebook::before {
-  content: "\f09a";
+  content: '\f09a';
   left: 33%; }
 .social-icons .rss::before {
-  content: "\f09e";
+  content: '\f09e';
   left: 29%; }
 .social-icons .twitter::before {
-  content: "\f099";
+  content: '\f099';
   left: 24%; }
 .social-icons .youtube::before {
-  content: "\f167";
+  content: '\f167';
   left: 25%; }
-
 .social-icons.large {
   font-size: 35px;
   line-height: 60px;
   vertical-align: middle; }
   .social-icons.large li {
-    width: 60px;
-    height: 60px; }
+    height: 60px;
+    width: 60px; }
   .social-icons.large li::before {
     line-height: 60px; }
   .social-icons.large .facebook {
@@ -92,14 +85,13 @@ table {
   .social-icons.large .youtube {
     background-color: #b1372d; }
   .social-icons.large::before {
-    content: "\e235";
+    content: '\e235';
     font-family: 'Glyphicons Halflings'; }
-
 .social-icons.small {
   font-size: 18px; }
   .social-icons.small li {
-    width: 30px;
-    height: 30px; }
+    height: 30px;
+    width: 30px; }
   .social-icons.small li::before {
     line-height: 30px; }
   .social-icons.small .facebook {
@@ -112,37 +104,38 @@ table {
     background-color: #6f6f6f; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  background-color: black;
-  background: url(../images/sk8-bg.jpg) center center fixed;
-  background-size: cover; }
+  background: url("../images/sk8-bg.jpg") center center fixed;
+  background-color: #000;
+  background-size: cover;
+  font-family: Helvetica, Arial, sans-serif; }
 
 .social-top {
   padding-top: 6px; }
-  .social-top .subscribe input, .social-top .subscribe button {
+  .social-top .subscribe input,
+  .social-top .subscribe button {
     display: none; }
-  .social-top .subscribe label:after {
-    content: "\00ba"; }
+  .social-top .subscribe label::after {
+    content: '\00ba'; }
   .social-top ul {
     text-align: right; }
 
 .top-nav {
-  padding-top: 16px;
   padding-bottom: 4px;
+  padding-top: 16px;
   text-align: center; }
   .top-nav .top-nav-item {
-    color: white; }
+    color: #fff; }
   .top-nav span {
+    background-color: #b2292e;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
     display: block;
-    line-height: 44px;
-    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
-    background-color: #b2292e; }
+    line-height: 44px; }
     .top-nav span::before {
       margin-right: 15px; }
     .top-nav span::after {
       margin-left: 15px; }
     .top-nav span::before, .top-nav span::after {
-      content: "-";
+      content: '-';
       display: inline-block; }
 
 .slider {
@@ -151,14 +144,14 @@ body {
   .slider .hidden {
     display: none; }
   .slider li {
-    display: block;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
-  .slider input[type="radio"] {
-    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
-    border-radius: 20px; }
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    display: block; }
+  .slider input[type='radio'] {
+    border-radius: 20px;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
   .slider .slider-buttons {
     padding-top: 22px; }
 
@@ -167,65 +160,66 @@ body {
 
 .article {
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
 
 .boarders {
   padding-top: 37px; }
 
 .boarder {
-  display: block;
-  margin-top: 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.9);
   text-align: center;
-  box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-top: 10px; }
 
 .boarder-img {
   background-size: cover; }
 
 .lance {
-  height: 222px;
-  background: url(../images/lance.jpg) center center no-repeat; }
+  background: url("../images/lance.jpg") center center no-repeat;
+  height: 222px; }
 
 .rodney {
-  height: 222px;
-  background: url(../images/rodney.jpg) center center no-repeat; }
+  background: url("../images/rodney.jpg") center center no-repeat;
+  height: 222px; }
 
 .steve {
-  height: 222px;
-  background: url(../images/steve.jpg) center center no-repeat; }
+  background: url("../images/steve.jpg") center center no-repeat;
+  height: 222px; }
 
 .tommy {
-  height: 444px;
-  background: url(../images/tommy.jpg) center center no-repeat; }
+  background: url("../images/tommy.jpg") center center no-repeat;
+  height: 444px; }
 
 .skateboards {
   padding-top: 37px;
   text-align: center; }
   .skateboards img {
-    box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
 
 .contact-form {
-  padding-top: 31px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  padding-top: 31px; }
 
-.contact-text, .c-form {
-  height: 360px;
-  box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+.contact-text,
+.c-form {
   background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+  height: 360px;
   padding-top: 33px; }
 
 .c-form input {
   line-height: 38px; }
 .c-form input:not([type=submit]) {
-  width: 100%;
-  box-shadow: inset 3px 3px 0px 0px #b2b2b2;
-  padding: 0px 13px;
   border: 1px solid #949494;
-  margin-bottom: 17px; }
+  box-shadow: inset 3px 3px 0 0 #b2b2b2;
+  margin-bottom: 17px;
+  padding: 0 13px;
+  width: 100%; }
 .c-form input[type=submit] {
-  color: white;
   background-color: #b2292e;
+  color: #fff;
   float: right;
   width: 50%; }
 
