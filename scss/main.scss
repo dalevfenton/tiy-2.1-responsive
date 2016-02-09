@@ -5,6 +5,13 @@
 
 @import 'reset';
 
+// /* Bootstrap Variables */
+// $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+// $grid-gutter-width: 10px;
+// $container-large-desktop: ( 1014px + $grid-gutter-width );
+// /* Import Bootstrap */
+// @import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
 //------------------------------------------------------------------------------
 //                                START SASS
 //------------------------------------------------------------------------------/
@@ -26,6 +33,12 @@ $row-height: 222px;
   padding: 10px;
   background-color: $opacity-bg-color;
   text-align: center;
+}
+
+@mixin button-style () {
+  background-color: $button-bg-color;
+  box-shadow: $box-shadow;
+  color: $light-text-color;
 }
 
 .social-icons {
@@ -102,9 +115,6 @@ $row-height: 222px;
   }
 }
 
-
-
-
 body {
   background: url('../images/sk8-bg.jpg') center center fixed;
   background-color: #000;
@@ -116,7 +126,7 @@ body {
   padding-top: 6px;
 
   .subscribe input,
-	.subscribe button {
+  .subscribe button {
     display: none;
   }
 
@@ -135,13 +145,8 @@ body {
   padding-top: 16px;
   text-align: center;
 
-  .top-nav-item {
-    color: $light-text-color;
-  }
-
   span {
-  	background-color: $button-bg-color;
-    box-shadow: $box-shadow;
+    @include button-style;
     display: block;
     line-height: 44px;
 
@@ -214,6 +219,20 @@ body {
 .lance {
   background: url('../images/lance.jpg') center center no-repeat;
   height: $row-height;
+	position: relative;
+
+  &::before {
+    @include button-style;
+    content: 'SKATEBOARDERS';
+		height: 96px;
+    line-height: 50px;
+		position: absolute;
+		width: 267px;
+
+		&::before{
+
+		}
+  }
 }
 
 .rodney {
@@ -269,8 +288,8 @@ body {
   }
 
   input[type=submit] {
-    background-color: $button-bg-color;
-    color: $light-text-color;
+    @include button-style;
+    box-shadow: none;
     float: right;
     width: 50%;
   }

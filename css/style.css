@@ -123,11 +123,10 @@ body {
   padding-bottom: 4px;
   padding-top: 16px;
   text-align: center; }
-  .top-nav .top-nav-item {
-    color: #fff; }
   .top-nav span {
     background-color: #b2292e;
     box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    color: #fff;
     display: block;
     line-height: 44px; }
     .top-nav span::before {
@@ -178,7 +177,17 @@ body {
 
 .lance {
   background: url("../images/lance.jpg") center center no-repeat;
-  height: 222px; }
+  height: 222px;
+  position: relative; }
+  .lance::before {
+    background-color: #b2292e;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    color: #fff;
+    content: 'SKATEBOARDERS';
+    height: 96px;
+    line-height: 50px;
+    position: absolute;
+    width: 267px; }
 
 .rodney {
   background: url("../images/rodney.jpg") center center no-repeat;
@@ -219,7 +228,9 @@ body {
   width: 100%; }
 .c-form input[type=submit] {
   background-color: #b2292e;
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   color: #fff;
+  box-shadow: none;
   float: right;
   width: 50%; }
 
