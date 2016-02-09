@@ -52,48 +52,114 @@ table {
                                 START SASS
 ------------------------------------------------------------------------------*/
 body {
-  background-color: black; }
-  body .container .social-top {
-    height: 64px;
-    margin-top: 6px; }
-    body .container .social-top .subscribe input, body .container .social-top .subscribe button {
-      display: none; }
-    body .container .social-top .subscribe label:after {
-      content: "\00ba"; }
-    body .container .social-top ul {
-      text-align: right; }
-    body .container .social-top li {
-      display: inline-block;
-      width: 60px;
-      height: 60px;
-      box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
-      font: FontAwesome; }
-    body .container .social-top .facebook {
-      background-color: #435996; }
-    body .container .social-top .rss {
-      background-color: #cc9031; }
-    body .container .social-top .twitter {
-      background-color: #698dc6; }
-    body .container .social-top .youtube {
-      background-color: #b1372d; }
-    body .container .social-top ul::before {
-      content: "\e235";
-      font-family: 'Glyphicons Halflings'; }
-  body .container .top-nav {
-    height: 44px;
-    margin-top: 16px;
-    text-align: center; }
-    body .container .top-nav .top-nav-item {
-      background-color: #b2292e;
-      line-height: 44px;
-      box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
-      color: white; }
-    body .container .top-nav span::before {
+  background-color: black;
+  background: url(../images/sk8-bg.jpg) center center fixed;
+  background-size: cover; }
+
+.social-top {
+  padding-top: 6px; }
+  .social-top .subscribe input, .social-top .subscribe button {
+    display: none; }
+  .social-top .subscribe label:after {
+    content: "\00ba"; }
+  .social-top ul {
+    text-align: right; }
+  .social-top li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    font: FontAwesome; }
+  .social-top .facebook {
+    background-color: #435996; }
+  .social-top .rss {
+    background-color: #cc9031; }
+  .social-top .twitter {
+    background-color: #698dc6; }
+  .social-top .youtube {
+    background-color: #b1372d; }
+  .social-top ul::before {
+    content: "\e235";
+    font-family: 'Glyphicons Halflings'; }
+
+.top-nav {
+  padding-top: 16px;
+  padding-bottom: 4px;
+  text-align: center; }
+  .top-nav .top-nav-item {
+    color: white; }
+  .top-nav span {
+    display: block;
+    line-height: 44px;
+    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+    background-color: #b2292e; }
+    .top-nav span::before {
       margin-right: 15px; }
-    body .container .top-nav span::after {
+    .top-nav span::after {
       margin-left: 15px; }
-    body .container .top-nav span::before, body .container .top-nav span::after {
+    .top-nav span::before, .top-nav span::after {
       content: "-";
       display: inline-block; }
+
+.slider {
+  padding-top: 17px;
+  text-align: center; }
+  .slider .hidden {
+    display: none; }
+  .slider li {
+    display: block;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+  .slider input[type="radio"] {
+    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+    border-radius: 20px; }
+  .slider .slider-buttons {
+    padding-top: 22px; }
+
+.articles {
+  padding-top: 26px; }
+
+.article {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+
+.boarders {
+  padding-top: 37px; }
+
+.boarder {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+
+.boarder-img {
+  background-size: cover; }
+
+.lance {
+  height: 222px;
+  background: url(../images/lance.jpg) center center no-repeat; }
+
+.rodney {
+  height: 222px;
+  background: url(../images/rodney.jpg) center center no-repeat; }
+
+.steve {
+  height: 222px;
+  background: url(../images/steve.jpg) center center no-repeat; }
+
+.tommy {
+  height: 444px;
+  background: url(../images/tommy.jpg) center center no-repeat; }
+
+.skateboards {
+  padding-top: 37px;
+  text-align: center; }
+  .skateboards img {
+    box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
 
 /*# sourceMappingURL=style.css.map */

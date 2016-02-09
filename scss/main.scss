@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
                                 RESET CSS
 ------------------------------------------------------------------------------*/
-
+// sass --watch scss/main.scss:css/style.css
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -56,63 +56,133 @@ table {
 ------------------------------------------------------------------------------*/
 $box_shadow: 0px 4px rgba(255, 255, 255, .5);
 $light_text_color: white;
+$opacity_bg_color: rgba(255,255,255, .9);
+@mixin picture-border (){
+  padding: 10px;
+  background-color: $opacity_bg_color;
+  text-align: center;
+}
 
 body{
   background-color: black;
-  .container{
-    // .row>*{
-    //   border: 2px solid red;
-    // }
-    .social-top{
-      height: 64px;
-      margin-top: 6px;
-      .subscribe input, .subscribe button{
-        display: none;
-      }
-      .subscribe label:after{
-        content: "\00ba";
-      }
-      ul{
-        text-align: right;
-      }
-      li{
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        box-shadow: $box_shadow;
-        font: FontAwesome;
-      }
-      .facebook{ background-color: rgba(67, 89, 150, 1);}
-      .rss{ background-color: rgba(204, 144, 49, 1); }
-      .twitter{ background-color: rgba(105, 141, 198, 1); }
-      .youtube{ background-color: rgba(177, 55, 45, 1); }
-      ul::before{
-        content: "\e235";
-        font-family: 'Glyphicons Halflings';
-      }
+  background: url(../images/sk8-bg.jpg) center center fixed;
+  background-size: cover;
+
+}
+.container{
+}
+.social-top{
+  padding-top: 6px;
+  .subscribe input, .subscribe button{
+    display: none;
+  }
+  .subscribe label:after{
+    content: "\00ba";
+  }
+  ul{
+    text-align: right;
+  }
+  li{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    box-shadow: $box_shadow;
+    box-sizing: border-box;
+    font: FontAwesome;
+  }
+  .facebook{ background-color: rgba(67, 89, 150, 1);}
+  .rss{ background-color: rgba(204, 144, 49, 1); }
+  .twitter{ background-color: rgba(105, 141, 198, 1); }
+  .youtube{ background-color: rgba(177, 55, 45, 1); }
+  ul::before{
+    content: "\e235";
+    font-family: 'Glyphicons Halflings';
+  }
+}
+.top-nav{
+  padding-top: 16px;
+  padding-bottom: 4px;
+  text-align: center;
+  .top-nav-item{
+    color: $light_text_color;
+  }
+  span{
+    display: block;
+    line-height: 44px;
+    box-shadow: $box_shadow;
+    background-color: rgba(178, 41, 46, 1);
+    &::before{
+      margin-right: 15px;
     }
-    .top-nav{
-      height: 44px;
-      margin-top: 16px;
-      text-align: center;
-      .top-nav-item{
-        background-color: rgba(178, 41, 46, 1);
-        line-height: 44px;
-        box-shadow: $box_shadow;
-        color: $light_text_color;
-      }
-      span{
-        &::before{
-          margin-right: 15px;
-        }
-        &::after{
-          margin-left: 15px;
-        }
-        &::before, &::after{
-          content: "-";
-          display: inline-block;
-        }
-      }
+    &::after{
+      margin-left: 15px;
     }
+    &::before, &::after{
+      content: "-";
+      display: inline-block;
+    }
+  }
+}
+.slider{
+  padding-top: 17px;
+  text-align: center;
+
+  .hidden{
+    display: none;
+  }
+  li{
+    display: block;
+    @include picture-border;
+    box-shadow: $box_shadow;
+  }
+  input[type="radio"]{
+    box-shadow: $box_shadow;
+    border-radius: 20px;
+  }
+  .slider-buttons{
+    padding-top: 22px;
+  }
+}
+.articles{
+  padding-top: 26px;
+}
+.article{
+  background: $opacity_bg_color;
+  box-shadow: $box_shadow;
+}
+.boarders{
+  padding-top: 37px;
+}
+.boarder{
+  display: block;
+  margin-top: 10px;
+  @include picture-border;
+  box-shadow: $box_shadow;
+}
+.boarder-img{
+  background-size: cover;
+}
+$row_height: 222px;
+.lance{
+  height: $row_height;
+  background: url(../images/lance.jpg) center center no-repeat;
+}
+.rodney{
+  height: $row_height;
+  background: url(../images/rodney.jpg) center center no-repeat;
+}
+.steve{
+  height: $row_height;
+  background: url(../images/steve.jpg) center center no-repeat;
+}
+.tommy{
+  height: $row_height*2;
+  background: url(../images/tommy.jpg) center center no-repeat;
+}
+.skateboards{
+  padding-top: 37px;
+  text-align: center;
+  img{
+    box-shadow: $box_shadow;
   }
 }
