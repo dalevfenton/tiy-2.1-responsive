@@ -1,9 +1,71 @@
+/*------------------------------------------------------------------------------
+                                RESET CSS
+------------------------------------------------------------------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*------------------------------------------------------------------------------
+                                START SASS
+------------------------------------------------------------------------------*/
+$box_shadow: 0px 4px rgba(255, 255, 255, .5);
+$light_text_color: white;
+
 body{
+  background-color: black;
   .container{
-    *{
-      border: 2px solid red;
-    }
+    // .row>*{
+    //   border: 2px solid red;
+    // }
     .social-top{
+      height: 64px;
+      margin-top: 6px;
       .subscribe input, .subscribe button{
         display: none;
       }
@@ -11,11 +73,45 @@ body{
         content: "\00ba";
       }
       ul{
-        display: inline-block;
+        text-align: right;
       }
+      li{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        box-shadow: $box_shadow;
+        font: FontAwesome;
+      }
+      .facebook{ background-color: rgba(67, 89, 150, 1);}
+      .rss{ background-color: rgba(204, 144, 49, 1); }
+      .twitter{ background-color: rgba(105, 141, 198, 1); }
+      .youtube{ background-color: rgba(177, 55, 45, 1); }
       ul::before{
         content: "\e235";
         font-family: 'Glyphicons Halflings';
+      }
+    }
+    .top-nav{
+      height: 44px;
+      margin-top: 16px;
+      text-align: center;
+      .top-nav-item{
+        background-color: rgba(178, 41, 46, 1);
+        line-height: 44px;
+        box-shadow: $box_shadow;
+        color: $light_text_color;
+      }
+      span{
+        &::before{
+          margin-right: 15px;
+        }
+        &::after{
+          margin-left: 15px;
+        }
+        &::before, &::after{
+          content: "-";
+          display: inline-block;
+        }
       }
     }
   }
