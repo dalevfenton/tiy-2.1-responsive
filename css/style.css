@@ -51,7 +51,68 @@ table {
 /*------------------------------------------------------------------------------
                                 START SASS
 ------------------------------------------------------------------------------*/
+.social-icons li {
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  font-family: FontAwesome;
+  color: rgba(255, 255, 255, 0.5); }
+.social-icons li::before {
+  position: absolute;
+  left: 50%; }
+.social-icons .facebook::before {
+  content: "\f09a";
+  left: 33%; }
+.social-icons .rss::before {
+  content: "\f09e";
+  left: 29%; }
+.social-icons .twitter::before {
+  content: "\f099";
+  left: 24%; }
+.social-icons .youtube::before {
+  content: "\f167";
+  left: 25%; }
+
+.social-icons.large {
+  font-size: 35px;
+  line-height: 60px;
+  vertical-align: middle; }
+  .social-icons.large li {
+    width: 60px;
+    height: 60px; }
+  .social-icons.large li::before {
+    line-height: 60px; }
+  .social-icons.large .facebook {
+    background-color: #435996; }
+  .social-icons.large .rss {
+    background-color: #cc9031; }
+  .social-icons.large .twitter {
+    background-color: #698dc6; }
+  .social-icons.large .youtube {
+    background-color: #b1372d; }
+  .social-icons.large::before {
+    content: "\e235";
+    font-family: 'Glyphicons Halflings'; }
+
+.social-icons.small {
+  font-size: 18px; }
+  .social-icons.small li {
+    width: 30px;
+    height: 30px; }
+  .social-icons.small li::before {
+    line-height: 30px; }
+  .social-icons.small .facebook {
+    background-color: #6d6d6d; }
+  .social-icons.small .rss {
+    background-color: #7f7f7f; }
+  .social-icons.small .twitter {
+    background-color: #989898; }
+  .social-icons.small .youtube {
+    background-color: #6f6f6f; }
+
 body {
+  font-family: Helvetica, Arial, sans-serif;
   background-color: black;
   background: url(../images/sk8-bg.jpg) center center fixed;
   background-size: cover; }
@@ -64,24 +125,6 @@ body {
     content: "\00ba"; }
   .social-top ul {
     text-align: right; }
-  .social-top li {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
-    box-sizing: border-box;
-    font: FontAwesome; }
-  .social-top .facebook {
-    background-color: #435996; }
-  .social-top .rss {
-    background-color: #cc9031; }
-  .social-top .twitter {
-    background-color: #698dc6; }
-  .social-top .youtube {
-    background-color: #b1372d; }
-  .social-top ul::before {
-    content: "\e235";
-    font-family: 'Glyphicons Halflings'; }
 
 .top-nav {
   padding-top: 16px;
@@ -161,5 +204,29 @@ body {
   text-align: center; }
   .skateboards img {
     box-shadow: 0px 4px rgba(255, 255, 255, 0.5); }
+
+.contact-form {
+  padding-top: 31px;
+  margin-bottom: 50px; }
+
+.contact-text, .c-form {
+  height: 360px;
+  box-shadow: 0px 4px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  padding-top: 33px; }
+
+.c-form input {
+  line-height: 38px; }
+.c-form input:not([type=submit]) {
+  width: 100%;
+  box-shadow: inset 3px 3px 0px 0px #b2b2b2;
+  padding: 0px 13px;
+  border: 1px solid #949494;
+  margin-bottom: 17px; }
+.c-form input[type=submit] {
+  color: white;
+  background-color: #b2292e;
+  float: right;
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */

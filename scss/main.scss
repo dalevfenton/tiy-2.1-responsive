@@ -54,16 +54,80 @@ table {
 /*------------------------------------------------------------------------------
                                 START SASS
 ------------------------------------------------------------------------------*/
+$font_family: Helvetica, Arial, sans-serif;
 $box_shadow: 0px 4px rgba(255, 255, 255, .5);
 $light_text_color: white;
+$social_icon_color: rgba(255,255,255, .5);
 $opacity_bg_color: rgba(255,255,255, .9);
+$button_bg_color: rgba(178, 41, 46, 1);
+$facebook_color: rgba(67, 89, 150, 1);
+$rss_color: rgba(204, 144, 49, 1);
+$twitter_color: rgba(105, 141, 198, 1);
+$youtube_color: rgba(177, 55, 45, 1);
+$icon_size: 60px;
+$icon_font_size: 36px;
 @mixin picture-border (){
   padding: 10px;
   background-color: $opacity_bg_color;
   text-align: center;
 }
 
+.social-icons{
+  li{
+    display: inline-block;
+    position: relative;
+    box-shadow: $box_shadow;
+    box-sizing: border-box;
+    font-family: FontAwesome;
+    color: $social_icon_color;
+  }
+  li::before{
+    position: absolute;
+    left: 50%;
+  }
+  .facebook::before{ content: "\f09a"; left:33%; }
+  .rss::before{  content: "\f09e"; left:29%; }
+  .twitter::before{  content: "\f099"; left:24%; }
+  .youtube::before{ content: "\f167"; left:25%; }
+}
+.social-icons.large{
+  font-size: 35px;
+  line-height: $icon_size;
+  vertical-align: middle;
+  li{
+    width: $icon_size;
+    height: $icon_size;
+  }
+  li::before{
+    line-height: $icon_size;
+  }
+  .facebook{ background-color: $facebook_color;}
+  .rss{ background-color: $rss_color; }
+  .twitter{ background-color: $twitter_color; }
+  .youtube{ background-color: $youtube_color; }
+  &::before{
+    content: "\e235";
+    font-family: 'Glyphicons Halflings';
+  }
+}
+.social-icons.small{
+  font-size: $icon_font_size/2;
+  li{
+    width: $icon_size/2;
+    height: $icon_size/2;
+  }
+  li::before{
+    line-height: $icon_size/2;
+  }
+  .facebook{ background-color: grayscale($facebook_color);}
+  .rss{ background-color: grayscale($rss_color); }
+  .twitter{ background-color: grayscale($twitter_color); }
+  .youtube{ background-color: grayscale($youtube_color); }
+}
+
+
 body{
+  font-family: $font_family;
   background-color: black;
   background: url(../images/sk8-bg.jpg) center center fixed;
   background-size: cover;
@@ -82,22 +146,7 @@ body{
   ul{
     text-align: right;
   }
-  li{
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    box-shadow: $box_shadow;
-    box-sizing: border-box;
-    font: FontAwesome;
-  }
-  .facebook{ background-color: rgba(67, 89, 150, 1);}
-  .rss{ background-color: rgba(204, 144, 49, 1); }
-  .twitter{ background-color: rgba(105, 141, 198, 1); }
-  .youtube{ background-color: rgba(177, 55, 45, 1); }
-  ul::before{
-    content: "\e235";
-    font-family: 'Glyphicons Halflings';
-  }
+
 }
 .top-nav{
   padding-top: 16px;
@@ -110,7 +159,7 @@ body{
     display: block;
     line-height: 44px;
     box-shadow: $box_shadow;
-    background-color: rgba(178, 41, 46, 1);
+    background-color: $button_bg_color;
     &::before{
       margin-right: 15px;
     }
@@ -184,5 +233,33 @@ $row_height: 222px;
   text-align: center;
   img{
     box-shadow: $box_shadow;
+  }
+}
+.contact-form{
+  padding-top: 31px;
+  margin-bottom: 50px;
+}
+.contact-text, .c-form{
+  height: 360px;
+  box-shadow: $box_shadow;
+  background: $opacity_bg_color;
+  padding-top: 33px;
+}
+.c-form{
+  input{
+    line-height: 38px;
+  }
+  input:not([type=submit]){
+    width: 100%;
+    box-shadow: inset 3px 3px 0px 0px rgba(178, 178, 178, 1);
+    padding: 0px 13px;
+    border: 1px solid rgba(148, 148, 148, 1);
+    margin-bottom: 17px;
+  }
+  input[type=submit]{
+    color: $light_text_color;
+    background-color: $button_bg_color;
+    float: right;
+    width: 50%;
   }
 }
