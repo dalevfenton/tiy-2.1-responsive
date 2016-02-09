@@ -41,6 +41,9 @@ $row-height: 222px;
   color: $light-text-color;
 }
 
+img {
+	max-width: 100%;
+};
 .social-icons {
   li {
     box-shadow: $box-shadow;
@@ -227,10 +230,14 @@ body {
 		height: 96px;
     line-height: 50px;
 		position: absolute;
+		top: 50%;
+		left: -50%;
 		width: 267px;
 
 		&::before{
-
+			@include button-style;
+			position: absolute;
+			top: 1px;
 		}
   }
 }

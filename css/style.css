@@ -5856,6 +5856,9 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+img {
+  max-width: 100%; }
+
 .social-icons li {
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
@@ -5998,7 +6001,15 @@ body {
     height: 96px;
     line-height: 50px;
     position: absolute;
+    top: 50%;
+    left: -50%;
     width: 267px; }
+    .lance::before::before {
+      background-color: #b2292e;
+      box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+      color: #fff;
+      position: absolute;
+      top: 1px; }
 
 .rodney {
   background: url("../images/rodney.jpg") center center no-repeat;
