@@ -222,7 +222,30 @@ body {
 		top: 49%;
 	}
 }
-
+.slider-holder {
+	@include picture-border;
+	box-shadow: $box-shadow;
+	display: block;
+	position: relative;
+	height: 360px;
+	overflow: hidden;
+}
+.grid-overlay {
+	background: url('../images/grid.png') center center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+.powell-overlay{
+	background: url('../images/peralta-logo.png') center center no-repeat;
+	position: absolute;
+	width: 410px;
+	height: 237px;
+	top: 55px;
+	left: 28px;
+}
 .slider {
   padding-top: 17px;
   text-align: center;
@@ -232,9 +255,7 @@ body {
   }
 
   li {
-    @include picture-border;
-    box-shadow: $box-shadow;
-    display: block;
+
   }
 
   input[type='radio'] {
