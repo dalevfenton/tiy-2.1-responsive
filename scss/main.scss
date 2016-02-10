@@ -3,6 +3,7 @@
 //------------------------------------------------------------------------------
 // sass --watch scss/main.scss:css/style.css
 
+
 @import 'reset';
 
 // /* Bootstrap Variables */
@@ -35,6 +36,7 @@ $read-more-font: 13px;
 $bracket-offset: 79px;
 $radio-label-size: 16px;
 $radio-dot-size: $radio-label-size * .375;
+$input-height: 44px;
 
 @mixin picture-border () {
   padding: 5px;
@@ -53,6 +55,11 @@ $radio-dot-size: $radio-label-size * .375;
 	color: $title-color;
 	margin: 20px 0 0 0;
 	padding: 0;
+}
+@mixin input-field () {
+	height: $input-height;
+	border: 1px solid rgba(148, 148, 148, 1);
+	box-shadow: inset 3px 3px 0 0 rgba(178, 178, 178, 1);
 }
 
 @function strip-unit($number) {
@@ -113,7 +120,16 @@ img {
       line-height: $icon-size;
     }
 
-    .facebook { background-color: $facebook-color;}
+    .facebook {
+			background-color: $facebook-color;
+			&:hover {
+				background-color: lighten($facebook-color, 25%);
+			}
+			&:active {
+				background-color: darken($facebook-color, 10%);
+				padding-top: 4px;
+			}
+		}
 
     .rss { background-color: $rss-color; }
 
@@ -189,14 +205,45 @@ body {
   padding-top: 6px;
 	line-height: 44px;
 
+	#sub-open {
+		display: none;
+	}
+
 	.subscribe {
 		text-align: left;
 		color: $light-text-color;
+		position: relative;
+
+		& > * {
+			cursor: pointer;
+			cursor: hand;
+
+			&:hover, &:active{
+				cursor: pointer;
+				cursor: hand;
+			}
+		}
+
+		&:hover, &:active{
+			label {
+				border-top: 4px solid $button-bg-color;
+				border-right: 4px solid $button-bg-color;
+				background-color: $light-text-color;
+				color: $title-color;
+
+				&::after {
+					content: '\25C0';
+				}
+			}
+		}
 
 		label {
 			margin: 10px 0 7px 36px;
+			padding: 0 1.5rem;
 			font-weight: lighter;
 			font-size: 13px;
+			display: inline-block;
+			transition: .1s ease-in-out;
 
 			&::after {
 				content: '\2022';
@@ -205,16 +252,60 @@ body {
 			}
 		}
 
+		input[type='checkbox'] {
+			display: block;
+	  }
+
+		input[type="checkbox"]:checked {
+			& ~ div{
+				display: inline-block;
+				opacity: 1;
+				width: 300px;
+			}
+		}
 	}
-  .subscribe input,
-  .subscribe button {
-    display: none;
-  }
 
   ul {
     text-align: right;
   }
 
+}
+.control-me {
+	text-align: center;
+	display: none;
+	opacity: 0;
+	transition: .25s ease-in;
+	line-height: 1.5rem;
+	position: absolute;
+	top: 1.75rem;
+	right: 105.5%;
+	width: 0;
+
+	input, button {
+		display: block;
+		float: left;
+	}
+	input {
+		@include input-field;
+		width: 80%;
+		padding: .6rem 0 .1rem 1.5rem;
+		height: 3rem;
+		color: rgb(51, 51, 51);
+	}
+	button {
+		@include button-style;
+		box-shadow: none;
+		width: 20%;
+		height: 3rem;
+
+		&::after {
+			font-family: FontAwesome;
+			content: '\f00c';
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+	}
 }
 
 .top-nav {
@@ -523,6 +614,7 @@ body {
 	padding: 12px 10px 0 10px;
 	margin-bottom: 30px;
   margin-top: 35px;
+	clear: both;
 }
 
 .contact-text {
@@ -539,16 +631,19 @@ body {
 	line-height: 28px;
 	font-size: 16px;
 }
+.main-contact {
+	clear: both;
+}
 
 .c-form {
 	margin-top: 20px;
 	padding-right: 19px;
 	padding-left: 43px;
+	clear: both;
 
-	$input-height: 44px;
+
   input {
-    height: $input-height;
-		vertical-align: top;
+    @include input-field;
 
 		&[type="textarea"] {
 			height: ( $input-height * 2.6 ) - 7;
@@ -556,8 +651,6 @@ body {
   }
 
   input:not([type=submit]) {
-    border: 1px solid rgba(148, 148, 148, 1);
-    box-shadow: inset 3px 3px 0 0 rgba(178, 178, 178, 1);
     margin-bottom: 17px;
     padding: 0 13px;
     width: 100%;

@@ -15,11 +15,16 @@
 
     <div class="row social-top">
       <div class="col-md-2 col-md-offset-6">
-        <form class="subscribe" method="post">
-          <label for="subscribe">SUBSCRIBE</label>
-          <input type="email" name="email" value="">
-          <button type="submit" name="submit"></button>
-        </form>
+        <div class="subscribe">
+          <input type="checkbox" id="sub-open">
+          <label for="sub-open" >SUBSCRIBE</label>
+          <div class="control-me">
+            <form class="subscribe" method="post">
+              <input type="email" name="email" value="" placeholder="email@email.com">
+              <button class="sub-btn" type="submit" name="submit"></button>
+            </form>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
         <ul class="social-icons large">
@@ -185,7 +190,7 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="c-form clearfix">
+              <div class="c-form">
                 <form class="main-contact" method="post">
                   <input type="text" name="name" value="" placeholder="NAME">
                   <input type="email" name="email" value="" placeholder="EMAIL">

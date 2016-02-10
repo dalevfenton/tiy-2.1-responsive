@@ -5900,6 +5900,11 @@ img {
       line-height: 60px; }
     .social-icons.large .facebook {
       background-color: #435996; }
+      .social-icons.large .facebook:hover {
+        background-color: #8d9dcc; }
+      .social-icons.large .facebook:active {
+        background-color: #334473;
+        padding-top: 4px; }
     .social-icons.large .rss {
       background-color: #cc9031; }
     .social-icons.large .twitter {
@@ -5956,22 +5961,79 @@ body {
 .social-top {
   padding-top: 6px;
   line-height: 44px; }
+  .social-top #sub-open {
+    display: none; }
   .social-top .subscribe {
     text-align: left;
-    color: #fff; }
+    color: #fff;
+    position: relative; }
+    .social-top .subscribe > * {
+      cursor: pointer;
+      cursor: hand; }
+      .social-top .subscribe > *:hover, .social-top .subscribe > *:active {
+        cursor: pointer;
+        cursor: hand; }
+    .social-top .subscribe:hover label, .social-top .subscribe:active label {
+      border-top: 4px solid #b2292e;
+      border-right: 4px solid #b2292e;
+      background-color: #fff;
+      color: #383735; }
+      .social-top .subscribe:hover label::after, .social-top .subscribe:active label::after {
+        content: '\25C0'; }
     .social-top .subscribe label {
       margin: 10px 0 7px 36px;
+      padding: 0 1.5rem;
       font-weight: lighter;
-      font-size: 13px; }
+      font-size: 13px;
+      display: inline-block;
+      transition: .1s ease-in-out; }
       .social-top .subscribe label::after {
         content: '\2022';
         font-size: 10px;
         margin-left: 14px; }
-  .social-top .subscribe input,
-  .social-top .subscribe button {
-    display: none; }
+    .social-top .subscribe input[type='checkbox'] {
+      display: block; }
+    .social-top .subscribe input[type="checkbox"]:checked ~ div {
+      display: inline-block;
+      opacity: 1;
+      width: 300px; }
   .social-top ul {
     text-align: right; }
+
+.control-me {
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: .25s ease-in;
+  line-height: 1.5rem;
+  position: absolute;
+  top: 1.75rem;
+  right: 105.5%;
+  width: 0; }
+  .control-me input, .control-me button {
+    display: block;
+    float: left; }
+  .control-me input {
+    height: 44px;
+    border: 1px solid #949494;
+    box-shadow: inset 3px 3px 0 0 #b2b2b2;
+    width: 80%;
+    padding: .6rem 0 .1rem 1.5rem;
+    height: 3rem;
+    color: #333333; }
+  .control-me button {
+    background-color: #b2292e;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    color: #fff;
+    box-shadow: none;
+    width: 20%;
+    height: 3rem; }
+    .control-me button::after {
+      font-family: FontAwesome;
+      content: '\f00c';
+      position: relative;
+      top: 0;
+      left: 0; }
 
 .top-nav {
   padding-bottom: 4px;
@@ -6219,7 +6281,8 @@ body {
   height: 360px;
   padding: 12px 10px 0 10px;
   margin-bottom: 30px;
-  margin-top: 35px; }
+  margin-top: 35px;
+  clear: both; }
 
 .contact-text {
   padding-left: 30px; }
@@ -6235,18 +6298,21 @@ body {
   line-height: 28px;
   font-size: 16px; }
 
+.main-contact {
+  clear: both; }
+
 .c-form {
   margin-top: 20px;
   padding-right: 19px;
-  padding-left: 43px; }
+  padding-left: 43px;
+  clear: both; }
   .c-form input {
     height: 44px;
-    vertical-align: top; }
+    border: 1px solid #949494;
+    box-shadow: inset 3px 3px 0 0 #b2b2b2; }
     .c-form input[type="textarea"] {
       height: 107.4px; }
   .c-form input:not([type=submit]) {
-    border: 1px solid #949494;
-    box-shadow: inset 3px 3px 0 0 #b2b2b2;
     margin-bottom: 17px;
     padding: 0 13px;
     width: 100%; }
