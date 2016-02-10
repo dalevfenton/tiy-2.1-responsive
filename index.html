@@ -52,25 +52,24 @@
       <div class="col-md-12">
         <div class="slider-holder">
           <div class="slider-clip">
-            <ul>
-              <li class="active"><img src="images/top-image.png"></li>
-              <li class="hidden"><img src="images/slider-2.jpg"></li>
-              <li class="hidden"><img src="images/slider-3.jpg"></li>
-            </ul>
+            <input type="radio" class="slider-radio" name="slider" id="slider1" value="slider1" checked>
+            <label for="slider1" name="slider"></label>
+            <div class="slide-content">
+              <img src="images/top-image.png">
+            </div>
+            <input type="radio" class="slider-radio" name="slider" id="slider2" value="slider2">
+            <label for="slider2" name="slider"></label>
+            <div class="slide-content">
+              <img src="images/slider-2.jpg">
+            </div>
+            <input type="radio" class="slider-radio" name="slider" id="slider3" value="slider3">
+            <label for="slider3" name="slider"></label>
+            <div class="slide-content">
+              <img src="images/slider-3.jpg">
+            </div>
             <div class="grid-overlay"></div>
             <div class="powell-overlay"></div>
           </div>
-        </div>
-
-        <div class="slider-buttons">
-          <form>
-            <input type="radio" name="slider" id="slider1" value="slider1" checked="true">
-            <label for="slider1" name="slider"></label>
-            <input type="radio" name="slider" id="slider2" value="slider2">
-            <label for="slider2" name="slider"></label>
-            <input type="radio" name="slider" id="slider3" value="slider3">
-            <label for="slider3" name="slider"></label>
-          </form>
         </div>
       </div>
     </div>

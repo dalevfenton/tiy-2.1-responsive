@@ -347,12 +347,38 @@ body {
 	@include picture-border;
 	padding: 10px;
 	box-shadow: $box-shadow;
+	margin-bottom: 100px;
 }
 
 .slider-clip {
 	position: relative;
 	height: 337px;
 	overflow: hidden;
+}
+
+.slide {
+	position: relative;
+	overflow: hidden;
+	margin: 2rem 0;
+	padding-bottom: 2.5rem;
+
+	&::after {
+		position: absolute;
+		bottom: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 1;
+	  content: '';
+	  display: block;
+	  background: #34495e;
+	  height: 3rem;
+	}
+}
+
+.slide-content {
+  width: 100%;
+  float: left;
+  margin-right: -100%;
 }
 
 .grid-overlay {
@@ -363,6 +389,7 @@ body {
 	bottom: 0;
 	right: 0;
 	left: 0;
+	z-index: 4;
 }
 .powell-overlay{
 	background: url('../images/peralta-logo.png') center center no-repeat;
@@ -371,10 +398,12 @@ body {
 	height: 237px;
 	top: 55px;
 	left: 28px;
+	z-index: 5;
 }
 .slider {
   padding-top: 17px;
   text-align: center;
+	box-sizing: border-box;
 
   .hidden {
     display: none;
@@ -393,12 +422,25 @@ body {
 	    height: $radio-label-size;
 	    background: white;
 			border-radius: $radio-label-size / 2;
-			position: relative;
+			position: absolute;;
 			box-shadow: $box-shadow;
 			margin-left: 10px;
+			cursor: pointer;
+			bottom: 1rem;
+			z-index: 10;
+
+			&:nth-of-type(1) {
+			  left: 1rem;
+			}
+			&:nth-of-type(2) {
+			  left: 4rem;
+			}
+			&:nth-of-type(3) {
+			  left: 7rem;
+			}
 	}
 
-	input[type="radio"]:checked {
+	.slider-radio:checked {
 		& + label::before {
 				content: '';
 		    display:inline-block;
@@ -412,7 +454,22 @@ body {
 		}
 
 	}
-
+	.slider-radio:not(:checked) + label + .slide-content {
+		opacity: 0;
+		transition: opacity .35s;
+		pointer-events: none;
+	}
+	.slider-radio:checked + label + .slide-content {
+		animation: slide 1s;
+	}
+	@keyframes slide {
+		0% {
+			transform: translate( 100% );
+		}
+		100% {
+			transform: translate( 0 );
+		}
+	}
   .slider-buttons {
     padding-top: 25px;
   }
