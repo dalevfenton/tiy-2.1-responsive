@@ -62,6 +62,16 @@ $input-height: 44px;
 	box-shadow: inset 3px 3px 0 0 rgba(178, 178, 178, 1);
 }
 
+@mixin button-backgrounds ( $color ) {
+	background-color: $color;
+	&:hover {
+		background-color: lighten($color, 25%);
+	}
+	&:active {
+		background-color: darken($color, 10%);
+		padding-top: 4px;
+	}
+}
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
@@ -120,22 +130,13 @@ img {
       line-height: $icon-size;
     }
 
-    .facebook {
-			background-color: $facebook-color;
-			&:hover {
-				background-color: lighten($facebook-color, 25%);
-			}
-			&:active {
-				background-color: darken($facebook-color, 10%);
-				padding-top: 4px;
-			}
-		}
+    .facebook { @include button-backgrounds ( $facebook-color ); }
 
-    .rss { background-color: $rss-color; }
+    .rss { @include button-backgrounds ( $rss-color ); }
 
-    .twitter { background-color: $twitter-color; }
+    .twitter { @include button-backgrounds ( $twitter-color ) }
 
-    .youtube { background-color: $youtube-color; }
+    .youtube { @include button-backgrounds ( $youtube-color ) }
 
   }
 
@@ -322,6 +323,7 @@ body {
 }
 .top-nav-item {
 	@include button-style;
+	@include button-backgrounds( $button-bg-color );
 	position: relative;
 
 	&::before {

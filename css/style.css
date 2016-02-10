@@ -5907,10 +5907,25 @@ img {
         padding-top: 4px; }
     .social-icons.large .rss {
       background-color: #cc9031; }
+      .social-icons.large .rss:hover {
+        background-color: #e6c797; }
+      .social-icons.large .rss:active {
+        background-color: #a37327;
+        padding-top: 4px; }
     .social-icons.large .twitter {
       background-color: #698dc6; }
+      .social-icons.large .twitter:hover {
+        background-color: #c5d3e9; }
+      .social-icons.large .twitter:active {
+        background-color: #4571b7;
+        padding-top: 4px; }
     .social-icons.large .youtube {
       background-color: #b1372d; }
+      .social-icons.large .youtube:hover {
+        background-color: #de867f; }
+      .social-icons.large .youtube:active {
+        background-color: #882a23;
+        padding-top: 4px; }
   .social-icons.small {
     font-size: 18px; }
     .social-icons.small li {
@@ -6046,7 +6061,13 @@ body {
   background-color: #b2292e;
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   color: #fff;
+  background-color: #b2292e;
   position: relative; }
+  .top-nav-item:hover {
+    background-color: #e07a7e; }
+  .top-nav-item:active {
+    background-color: #891f23;
+    padding-top: 4px; }
   .top-nav-item::before {
     left: 20px; }
   .top-nav-item::after {
