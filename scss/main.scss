@@ -33,6 +33,8 @@ $bull-col-size: 4px;
 $title-color: rgba(56, 55, 53, 1);
 $read-more-font: 13px;
 $bracket-offset: 79px;
+$radio-label-size: 16px;
+$radio-dot-size: $radio-label-size * .375;
 
 @mixin picture-border () {
   padding: 5px;
@@ -53,9 +55,24 @@ $bracket-offset: 79px;
 	padding: 0;
 }
 
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+.clearfix {
+	overflow: auto;
+}
 img {
 	max-width: 100%;
-};
+}
+
+.container {
+	position: relative;
+}
 
 .social-icons {
 	margin: 0;
@@ -83,7 +100,7 @@ img {
   .youtube::before { content: '\f167'; left: 25%; }
 
   &.large {
-		float: left;
+		float: right;
     font-size: 35px;
     vertical-align: middle;
 
@@ -131,7 +148,7 @@ img {
 
 .bull-col {
 	display: inline-block;
-	float: left;
+	float: right;
 	line-height: $bull-col-size;
 	// margin-left: 47px;
 	// margin-right: 11px;
@@ -155,6 +172,17 @@ body {
   background-color: #000;
   background-size: cover;
   font-family: $font-family;
+	position: relative;
+
+	.overlay {
+		background: #000 fixed;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: .5;
+	}
 }
 
 .social-top {
@@ -224,14 +252,19 @@ body {
 }
 .slider-holder {
 	@include picture-border;
+	padding: 10px;
 	box-shadow: $box-shadow;
-	display: block;
+}
+
+.slider-clip {
 	position: relative;
-	height: 360px;
+	height: 337px;
 	overflow: hidden;
 }
+
 .grid-overlay {
 	background: url('../images/grid.png') center center;
+	opacity: .25;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -254,42 +287,50 @@ body {
     display: none;
   }
 
-  li {
-
-  }
-
+	form {
+		margin-left: 1.25%;
+	}
   input[type='radio'] {
 		display: none;
-    border-radius: 20px;
-    box-shadow: $box-shadow;
   }
-	input[type="radio"] + label span {
+
+	label{
 	    display:inline-block;
-	    width:20px;
-	    height:20px;
-	    background: black;
-			position: relative;
-	}
-	input[type="radio"] + label span::before {
-	    display:inline-block;
-	    width:10px;
-	    height:10px;
-			position: absolute;
-			top: 25%;
-			left: 25%;
+	    width: $radio-label-size;
+	    height: $radio-label-size;
 	    background: white;
+			border-radius: $radio-label-size / 2;
+			position: relative;
+			box-shadow: $box-shadow;
+			margin-left: 10px;
 	}
+
+	input[type="radio"]:checked {
+		& + label::before {
+				content: '';
+		    display:inline-block;
+		    width: $radio-dot-size;
+		    height: $radio-dot-size;
+				background: red;
+				border-radius: $radio-dot-size / 2;
+				position: absolute;
+				top: percentage( .5 - ( strip-unit($radio-dot-size) / ( 2 * strip-unit($radio-label-size ) ) ) );
+				left: percentage( .5 - ( strip-unit($radio-dot-size) / ( 2 * strip-unit($radio-label-size ) ) ) );
+		}
+
+	}
+
   .slider-buttons {
-    padding-top: 13px;
+    padding-top: 25px;
   }
 }
 
 .articles {
-  padding-top: 26px;
+  padding-top: 18px;
 }
 
 .article {
-	padding: 7px 40px 18px 26px;
+	padding: 7px 40px 16px 26px;
   background: $opacity-bg-color;
   box-shadow: $box-shadow;
 
@@ -344,7 +385,7 @@ body {
 	}
 }
 .boarders {
-  padding-top: 29px;
+  padding-top: 31px;
 }
 
 .boarder {
@@ -352,18 +393,6 @@ body {
   box-shadow: $box-shadow;
   display: block;
   margin-top: 10px;
-
-	span {
-		color: $light-text-color;
-		font-weight: bold;
-		position: absolute;
-		text-transform: uppercase;
-		width: 80%;
-		left: 10%;
-		top: 31%;
-		font-size: $icon-font-size * 1.2;
-		line-height: $icon-font-size * 1.39;
-	}
 }
 
 .boarder-holder {
@@ -408,55 +437,122 @@ body {
 .lance, .rodney, .steve, .tommy {
 	overflow: hidden;
 	position: relative;
+
+	span {
+		color: $light-text-color;
+		font-weight: bold;
+		position: absolute;
+		text-transform: uppercase;
+		width: 80%;
+		font-size: $icon-font-size * 1.2;
+		line-height: $icon-font-size * 1.333;
+	}
 }
 
 .lance {
   height: $row-height;
+	.boarder-holder {
+		top: -13px;
+		margin-left: -554px;
+	}
+	span {
+		left: 10%;
+		top: 31%;
+	}
 }
 
 .rodney {
   height: $row-height;
+	.boarder-holder {
+		top: -10px;
+		margin-left: -452px;
+	}
+	span {
+		left: 10%;
+		top: 31%;
+	}
 }
 
 .steve {
   height: $row-height;
+	.boarder-holder {
+		top: -100px;
+		margin-left: -483px;
+	}
+	span {
+		left: 12%;
+		top: 36%;
+	}
 }
 
 .tommy {
   height: ( $row-height * 2 ) + ( $grid-gutter-width * 2 );
+	.boarder-holder {
+		top: 0;
+		margin-left: -640px;
+	}
+	span {
+		left: 10%;
+		top: 40%;
+	}
 }
 
 .skateboards {
-  padding-top: 37px;
+  padding-top: 31px;
   text-align: center;
 
-  img {
-    box-shadow: $box-shadow;
-  }
-
 }
 
-.contact-form {
-  margin-bottom: 50px;
-  padding-top: 31px;
+.skateboard-holder {
+	background: $light-text-color;
+	box-shadow: $box-shadow;
+	padding: 12px 13px 23px 10px;
+
+	li{
+		display: inline-block;
+		float: left;
+		width: 10%;
+		padding: 0 5px;
+	}
 }
 
-.contact-text,
-.c-form {
-  background: $opacity-bg-color;
+.contact-holder {
+	background: $opacity-bg-color;
   box-shadow: $box-shadow;
-  height: 360px;
-  padding-top: 33px;
+	height: 360px;
+	padding: 12px 10px 0 10px;
+	margin-bottom: 30px;
+  margin-top: 35px;
+}
+
+.contact-text {
+	padding-left: 30px;
 
 	h3 {
 		@include title-style;
 	}
 }
 
-.c-form {
+.contact-text-text {
+	margin: 14px 0 22px 0;
+	color: rgba(82, 82, 82, 1);
+	line-height: 28px;
+	font-size: 16px;
+}
 
+.c-form {
+	margin-top: 20px;
+	padding-right: 19px;
+	padding-left: 43px;
+
+	$input-height: 44px;
   input {
-    line-height: 38px;
+    height: $input-height;
+		vertical-align: top;
+
+		&[type="textarea"] {
+			height: ( $input-height * 2.6 ) - 7;
+		}
   }
 
   input:not([type=submit]) {
@@ -471,6 +567,8 @@ body {
     @include button-style;
     box-shadow: none;
     float: right;
-    width: 50%;
+    width: 57%;
+		margin-top: 10px;
+		font-size: 16px;
   }
 }

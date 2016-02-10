@@ -5856,8 +5856,14 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+.clearfix {
+  overflow: auto; }
+
 img {
   max-width: 100%; }
+
+.container {
+  position: relative; }
 
 .social-icons {
   margin: 0; }
@@ -5884,7 +5890,7 @@ img {
     content: '\f167';
     left: 25%; }
   .social-icons.large {
-    float: left;
+    float: right;
     font-size: 35px;
     vertical-align: middle; }
     .social-icons.large li {
@@ -5918,7 +5924,7 @@ img {
 
 .bull-col {
   display: inline-block;
-  float: left;
+  float: right;
   line-height: 4px;
   margin: 11px 11px 0 50px;
   width: 4px; }
@@ -5936,7 +5942,16 @@ body {
   background: url("../images/bg.jpg") center center fixed;
   background-color: #000;
   background-size: cover;
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif;
+  position: relative; }
+  body .overlay {
+    background: #000 fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .5; }
 
 .social-top {
   padding-top: 6px;
@@ -5985,14 +6000,17 @@ body {
   padding: 5px;
   background-color: rgba(255, 255, 255, 0.9);
   text-align: center;
-  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
-  display: block;
+  padding: 10px;
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
+
+.slider-clip {
   position: relative;
-  height: 360px;
+  height: 337px;
   overflow: hidden; }
 
 .grid-overlay {
   background: url("../images/grid.png") center center;
+  opacity: .25;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6012,32 +6030,37 @@ body {
   text-align: center; }
   .slider .hidden {
     display: none; }
+  .slider form {
+    margin-left: 1.25%; }
   .slider input[type='radio'] {
-    display: none;
-    border-radius: 20px;
-    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
-  .slider input[type="radio"] + label span {
+    display: none; }
+  .slider label {
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: black;
-    position: relative; }
-  .slider input[type="radio"] + label span::before {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    margin-left: 10px; }
+  .slider input[type="radio"]:checked + label::before {
+    content: '';
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
+    background: red;
+    border-radius: 3px;
     position: absolute;
-    top: 25%;
-    left: 25%;
-    background: white; }
+    top: 31.25%;
+    left: 31.25%; }
   .slider .slider-buttons {
-    padding-top: 13px; }
+    padding-top: 25px; }
 
 .articles {
-  padding-top: 26px; }
+  padding-top: 18px; }
 
 .article {
-  padding: 7px 40px 18px 26px;
+  padding: 7px 40px 16px 26px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
   .article h1 {
@@ -6082,7 +6105,7 @@ body {
     right: 79px; }
 
 .boarders {
-  padding-top: 29px; }
+  padding-top: 31px; }
 
 .boarder {
   padding: 5px;
@@ -6091,16 +6114,6 @@ body {
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   display: block;
   margin-top: 10px; }
-  .boarder span {
-    color: #fff;
-    font-weight: bold;
-    position: absolute;
-    text-transform: uppercase;
-    width: 80%;
-    left: 10%;
-    top: 31%;
-    font-size: 43.2px;
-    line-height: 50.04px; }
 
 .boarder-holder {
   width: 1000px;
@@ -6141,56 +6154,110 @@ body {
 .lance, .rodney, .steve, .tommy {
   overflow: hidden;
   position: relative; }
+  .lance span, .rodney span, .steve span, .tommy span {
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    text-transform: uppercase;
+    width: 80%;
+    font-size: 43.2px;
+    line-height: 47.988px; }
 
 .lance {
   height: 222px; }
+  .lance .boarder-holder {
+    top: -13px;
+    margin-left: -554px; }
+  .lance span {
+    left: 10%;
+    top: 31%; }
 
 .rodney {
   height: 222px; }
+  .rodney .boarder-holder {
+    top: -10px;
+    margin-left: -452px; }
+  .rodney span {
+    left: 10%;
+    top: 31%; }
 
 .steve {
   height: 222px; }
+  .steve .boarder-holder {
+    top: -100px;
+    margin-left: -483px; }
+  .steve span {
+    left: 12%;
+    top: 36%; }
 
 .tommy {
   height: 464px; }
+  .tommy .boarder-holder {
+    top: 0;
+    margin-left: -640px; }
+  .tommy span {
+    left: 10%;
+    top: 40%; }
 
 .skateboards {
-  padding-top: 37px;
+  padding-top: 31px;
   text-align: center; }
-  .skateboards img {
-    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
 
-.contact-form {
-  margin-bottom: 50px;
-  padding-top: 31px; }
+.skateboard-holder {
+  background: #fff;
+  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+  padding: 12px 13px 23px 10px; }
+  .skateboard-holder li {
+    display: inline-block;
+    float: left;
+    width: 10%;
+    padding: 0 5px; }
 
-.contact-text,
-.c-form {
+.contact-holder {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   height: 360px;
-  padding-top: 33px; }
-  .contact-text h3,
-  .c-form h3 {
+  padding: 12px 10px 0 10px;
+  margin-bottom: 30px;
+  margin-top: 35px; }
+
+.contact-text {
+  padding-left: 30px; }
+  .contact-text h3 {
     font-size: 25px;
     color: #383735;
     margin: 20px 0 0 0;
     padding: 0; }
 
-.c-form input {
-  line-height: 38px; }
-.c-form input:not([type=submit]) {
-  border: 1px solid #949494;
-  box-shadow: inset 3px 3px 0 0 #b2b2b2;
-  margin-bottom: 17px;
-  padding: 0 13px;
-  width: 100%; }
-.c-form input[type=submit] {
-  background-color: #b2292e;
-  box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
-  color: #fff;
-  box-shadow: none;
-  float: right;
-  width: 50%; }
+.contact-text-text {
+  margin: 14px 0 22px 0;
+  color: #525252;
+  line-height: 28px;
+  font-size: 16px; }
+
+.c-form {
+  margin-top: 20px;
+  padding-right: 19px;
+  padding-left: 43px; }
+  .c-form input {
+    height: 44px;
+    vertical-align: top; }
+    .c-form input[type="textarea"] {
+      height: 107.4px; }
+  .c-form input:not([type=submit]) {
+    border: 1px solid #949494;
+    box-shadow: inset 3px 3px 0 0 #b2b2b2;
+    margin-bottom: 17px;
+    padding: 0 13px;
+    width: 100%; }
+  .c-form input[type=submit] {
+    background-color: #b2292e;
+    box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
+    color: #fff;
+    box-shadow: none;
+    float: right;
+    width: 57%;
+    margin-top: 10px;
+    font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */
