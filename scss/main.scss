@@ -26,6 +26,10 @@ $facebook-color: rgba(67, 89, 150, 1);
 $rss-color: rgba(204, 144, 49, 1);
 $twitter-color: rgba(105, 141, 198, 1);
 $youtube-color: rgba(177, 55, 45, 1);
+$facebook-color-gray: rgba(109, 109, 109, 1);
+$rss-color-gray: rgba(127, 127, 127, 1);
+$twitter-color-gray: rgba(152, 152, 152, 1);
+$youtube-color-gray: rgba(111, 111, 111, 1);
 $icon-size: 60px;
 $icon-font-size: 36px;
 $row-height: 222px;
@@ -87,6 +91,9 @@ img {
 	max-width: 100%;
 }
 
+a {
+	text-decoration: none;
+}
 .container {
 	position: relative;
 }
@@ -152,13 +159,13 @@ img {
       line-height: $icon-size / 2;
     }
 
-    .facebook { background-color: grayscale($facebook-color);}
+		.facebook { @include button-backgrounds ( $facebook-color-gray ); }
 
-    .rss { background-color: grayscale($rss-color); }
+		.rss { @include button-backgrounds ( $rss-color-gray ); }
 
-    .twitter { background-color: grayscale($twitter-color); }
+		.twitter { @include button-backgrounds ( $twitter-color-gray ) }
 
-    .youtube { background-color: grayscale($youtube-color); }
+		.youtube { @include button-backgrounds ( $youtube-color-gray ) }
 
   }
 }
@@ -325,6 +332,7 @@ body {
 	@include button-style;
 	@include button-backgrounds( $button-bg-color );
 	position: relative;
+	cursor: pointer;
 
 	&::before {
 		left: 20px;
@@ -347,7 +355,7 @@ body {
 	@include picture-border;
 	padding: 10px;
 	box-shadow: $box-shadow;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 .slider-clip {
@@ -484,8 +492,21 @@ body {
   background: $opacity-bg-color;
   box-shadow: $box-shadow;
 
+	a{
+		color: $title-color;
+		text-decoration: none;
+	}
 	h1 {
 		@include title-style;
+
+		&:hover, &:active {
+			color: darken( $title-color, 25% );
+			text-shadow: 0 2px 0 $button-bg-color;
+		}
+		&:active {
+			margin-top: 24px;
+			color: lighten( $title-color, 15% )
+		}
 	}
 
 }
@@ -507,7 +528,7 @@ body {
 	font-size: 13px;
 	line-height: 24px;
 }
-
+$read-more-top-mgn: 9px;
 .read-more-btn {
 	color: $button-bg-color;
 	display: block;
@@ -516,7 +537,7 @@ body {
 	font-weight: bold;
 	text-transform: uppercase;
 	margin-left: 14px;
-	margin-top: 9px;
+	margin-top: $read-more-top-mgn;
 	position: relative;
 
 	&::before, &::after {
@@ -532,6 +553,14 @@ body {
 	&::after {
 		content: ']';
 		right: $bracket-offset;
+	}
+
+	&:hover, &:active {
+		color: $title-color;
+	}
+	&:active{
+		margin-top: $read-more-top-mgn + 4px;
+		text-shadow: inset 0 2px 2px rgba(0,0,0, .5);
 	}
 }
 .boarders {
@@ -566,22 +595,30 @@ body {
 	position: absolute;
 	height: $arrow-height;
 	line-height: $arrow-height;
-	width: 267px;
-	left: -327px;
+	font-size: 25px;
+	width: 207px;
+	left: -278px;
 	top: 64px;
+	padding: 3px 0 0 12px;
+	z-index: 4;
 
-	&::after {
-		left: 100%;
-		top: 0;
-		border: solid transparent;
+	&::after, &::before {
+		left: 89%;
 		content: " ";
-		height: 0;
-		width: 0;
+		background-color: $button-bg-color;
 		position: absolute;
-		pointer-events: none;
-		border-left-color: $button-bg-color;
-		border-width: $arrow-height / 2;
-		// box-shadow: $box-shadow;
+		height: $arrow-height / 2;
+		width: $arrow-height * .7;
+		z-index: 1;
+	}
+	&::before{
+		top: 0;
+		transform: skew( 33deg );
+	}
+	&::after {
+		bottom: 0;
+		transform: skew( -33deg );
+		box-shadow: 2px 4px rgba(255, 255, 255, .5);
 	}
 }
 .lance, .rodney, .steve, .tommy {
@@ -596,6 +633,17 @@ body {
 		width: 80%;
 		font-size: $icon-font-size * 1.2;
 		line-height: $icon-font-size * 1.333;
+	}
+
+	.overlay{
+		opacity: 0;
+		transition: .25s ease-in-out;
+	}
+
+	&:hover, &:active{
+		.overlay {
+			opacity: .75;
+		}
 	}
 }
 
@@ -663,6 +711,11 @@ body {
 		float: left;
 		width: 10%;
 		padding: 0 5px;
+		transition: .1s;
+
+		&:hover, &:active {
+			margin-top: 6px;
+		}
 	}
 }
 
@@ -703,12 +756,10 @@ body {
 
   input {
     @include input-field;
-
 		&[type="textarea"] {
 			height: ( $input-height * 2.6 ) - 7;
 		}
   }
-
   input:not([type=submit]) {
     margin-bottom: 17px;
     padding: 0 13px;
@@ -717,6 +768,7 @@ body {
 
   input[type=submit] {
     @include button-style;
+		@include button-backgrounds( $button-bg-color );
     box-shadow: none;
     float: right;
     width: 57%;

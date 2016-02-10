@@ -5862,6 +5862,9 @@ button.close {
 img {
   max-width: 100%; }
 
+a {
+  text-decoration: none; }
+
 .container {
   position: relative; }
 
@@ -5935,12 +5938,32 @@ img {
       line-height: 30px; }
     .social-icons.small .facebook {
       background-color: #6d6d6d; }
+      .social-icons.small .facebook:hover {
+        background-color: #adadad; }
+      .social-icons.small .facebook:active {
+        background-color: #545454;
+        padding-top: 4px; }
     .social-icons.small .rss {
       background-color: #7f7f7f; }
+      .social-icons.small .rss:hover {
+        background-color: #bfbfbf; }
+      .social-icons.small .rss:active {
+        background-color: #666666;
+        padding-top: 4px; }
     .social-icons.small .twitter {
       background-color: #989898; }
+      .social-icons.small .twitter:hover {
+        background-color: #d8d8d8; }
+      .social-icons.small .twitter:active {
+        background-color: #7f7f7f;
+        padding-top: 4px; }
     .social-icons.small .youtube {
       background-color: #6f6f6f; }
+      .social-icons.small .youtube:hover {
+        background-color: #afafaf; }
+      .social-icons.small .youtube:active {
+        background-color: #565656;
+        padding-top: 4px; }
 
 .bull-col {
   display: inline-block;
@@ -6062,7 +6085,8 @@ body {
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
   color: #fff;
   background-color: #b2292e;
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
   .top-nav-item:hover {
     background-color: #e07a7e; }
   .top-nav-item:active {
@@ -6085,7 +6109,7 @@ body {
   text-align: center;
   padding: 10px;
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
-  margin-bottom: 100px; }
+  margin-bottom: 50px; }
 
 .slider-clip {
   position: relative;
@@ -6191,11 +6215,20 @@ body {
   padding: 7px 40px 16px 26px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5); }
+  .article a {
+    color: #383735;
+    text-decoration: none; }
   .article h1 {
     font-size: 25px;
     color: #383735;
     margin: 20px 0 0 0;
     padding: 0; }
+    .article h1:hover, .article h1:active {
+      color: black;
+      text-shadow: 0 2px 0 #b2292e; }
+    .article h1:active {
+      margin-top: 24px;
+      color: #5f5e5a; }
 
 .article-overflow {
   height: 300px;
@@ -6231,6 +6264,11 @@ body {
   .read-more-btn::after {
     content: ']';
     right: 79px; }
+  .read-more-btn:hover, .read-more-btn:active {
+    color: #383735; }
+  .read-more-btn:active {
+    margin-top: 13px;
+    text-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.5); }
 
 .boarders {
   padding-top: 31px; }
@@ -6264,20 +6302,27 @@ body {
   position: absolute;
   height: 96px;
   line-height: 96px;
-  width: 267px;
-  left: -327px;
-  top: 64px; }
-  .arrow::after {
-    left: 100%;
-    top: 0;
-    border: solid transparent;
+  font-size: 25px;
+  width: 207px;
+  left: -278px;
+  top: 64px;
+  padding: 3px 0 0 12px;
+  z-index: 4; }
+  .arrow::after, .arrow::before {
+    left: 89%;
     content: " ";
-    height: 0;
-    width: 0;
+    background-color: #b2292e;
     position: absolute;
-    pointer-events: none;
-    border-left-color: #b2292e;
-    border-width: 48px; }
+    height: 48px;
+    width: 67.2px;
+    z-index: 1; }
+  .arrow::before {
+    top: 0;
+    transform: skew(33deg); }
+  .arrow::after {
+    bottom: 0;
+    transform: skew(-33deg);
+    box-shadow: 2px 4px rgba(255, 255, 255, 0.5); }
 
 .lance, .rodney, .steve, .tommy {
   overflow: hidden;
@@ -6290,6 +6335,11 @@ body {
     width: 80%;
     font-size: 43.2px;
     line-height: 47.988px; }
+  .lance .overlay, .rodney .overlay, .steve .overlay, .tommy .overlay {
+    opacity: 0;
+    transition: .25s ease-in-out; }
+  .lance:hover .overlay, .lance:active .overlay, .rodney:hover .overlay, .rodney:active .overlay, .steve:hover .overlay, .steve:active .overlay, .tommy:hover .overlay, .tommy:active .overlay {
+    opacity: .75; }
 
 .lance {
   height: 222px; }
@@ -6339,7 +6389,10 @@ body {
     display: inline-block;
     float: left;
     width: 10%;
-    padding: 0 5px; }
+    padding: 0 5px;
+    transition: .1s; }
+    .skateboard-holder li:hover, .skateboard-holder li:active {
+      margin-top: 6px; }
 
 .contact-holder {
   background: rgba(255, 255, 255, 0.9);
@@ -6386,10 +6439,16 @@ body {
     background-color: #b2292e;
     box-shadow: 0 4px 0 0 rgba(255, 255, 255, 0.5);
     color: #fff;
+    background-color: #b2292e;
     box-shadow: none;
     float: right;
     width: 57%;
     margin-top: 10px;
     font-size: 16px; }
+    .c-form input[type=submit]:hover {
+      background-color: #e07a7e; }
+    .c-form input[type=submit]:active {
+      background-color: #891f23;
+      padding-top: 4px; }
 
 /*# sourceMappingURL=style.css.map */
